@@ -1,10 +1,11 @@
 public class AppFinanceiro {
-    static int calcularDivisao(int a, int b) {
+    static void calcularDivisao(int a, int b) {
         try {
-            return a / b;
+            int resultado = a / b;
+            System.out.println("Resultado: " + resultado);
         } catch (ArithmeticException e) {
-            System.out.println("Erro: Divisão por zero não é permitida.");
-            return 0;
+            System.out.println("Erro: " + e.getMessage());
+            LogDeErros.registrar(e);
         } finally {
             System.out.println("Operação finalizada com sucesso.");
         }
